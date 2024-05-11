@@ -8,7 +8,7 @@ dataSources:
     name: ERC20
     network: mainnet
     source:
-      address: "0x4aCD8A003d7C6d1B02C7F0B44976CcbFC1d07B3f"
+      address: "0xb130e16D79C853313672B14e54baFe622db22bB3"
       abi: ERC20
       startBlock: 10000
     mapping:
