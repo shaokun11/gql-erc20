@@ -1,23 +1,12 @@
+import { Address } from "@graphprotocol/graph-ts"
 import {
   Approval as ApprovalEvent,
+  ERC20,
   Transfer as TransferEvent
 } from "../generated/ERC20/ERC20"
 import { Approval, Transfer } from "../generated/schema"
 
-export function handleApproval(event: ApprovalEvent): void {
-  let entity = new Approval(
-    event.transaction.hash.concatI32(event.logIndex.toI32())
-  )
-  entity.owner = event.params.owner
-  entity.spender = event.params.spender
-  entity.value = event.params.value
-
-  entity.blockNumber = event.block.number
-  entity.blockTimestamp = event.block.timestamp
-  entity.transactionHash = event.transaction.hash
-
-  entity.save()
-}
+let Token = ERC20.bind(Address.fromString("0x4aCD8A003d7C6d1B02C7F0B44976CcbFC1d07B3f"))
 
 export function handleTransfer(event: TransferEvent): void {
   let entity = new Transfer(
@@ -30,6 +19,7 @@ export function handleTransfer(event: TransferEvent): void {
   entity.blockNumber = event.block.number
   entity.blockTimestamp = event.block.timestamp
   entity.transactionHash = event.transaction.hash
+  entity.balanceFrom = Token.balanceOf(event.params.from)
 
   entity.save()
 }

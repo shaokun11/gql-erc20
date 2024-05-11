@@ -8,22 +8,19 @@ dataSources:
     name: ERC20
     network: mainnet
     source:
-      address: "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+      address: "0x4aCD8A003d7C6d1B02C7F0B44976CcbFC1d07B3f"
       abi: ERC20
-      startBlock: 4634748
+      startBlock: 10000
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - Approval
         - Transfer
       abis:
         - name: ERC20
           file: ./abis/ERC20.json
       eventHandlers:
-        - event: Approval(indexed address,indexed address,uint256)
-          handler: handleApproval
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
       file: ./src/erc-20.ts

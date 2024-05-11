@@ -5,10 +5,9 @@
     "codegen": "graph codegen",
     "build": "graph build",
     "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ gql-erc20",
-    "create-local": "graph create --node http://localhost:8020/ gql-erc20",
-    "remove-local": "graph remove --node http://localhost:8020/ gql-erc20",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 gql-erc20",
-    "test": "graph test"
+    "create-local": "graph create --node http://3.144.174.17/ ",
+    "remove-local": "graph remove --node http://localhost:8020/ ",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001"
   },
   "dependencies": {
     "@graphprotocol/graph-cli": "0.71.2",
