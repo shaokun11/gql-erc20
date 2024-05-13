@@ -20,7 +20,7 @@ export function handleTransfer(event: TransferEvent): void {
   entity.blockTimestamp = event.block.timestamp
   entity.transactionHash = event.transaction.hash
   // entity.balanceFrom = BigInt.fromString("1")
-  entity.balanceFrom = Token.balanceOf(entity.from)
+  entity.balanceFrom = Token.balanceOf(Address.fromString(entity.from.toHexString()))
   log.info("-----Transfer event----------: {}", [entity.id.toHexString()])
   entity.save()
 }
