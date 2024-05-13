@@ -19,7 +19,8 @@ export function handleTransfer(event: TransferEvent): void {
   entity.blockNumber = event.block.number
   entity.blockTimestamp = event.block.timestamp
   entity.transactionHash = event.transaction.hash
-  entity.balanceFrom = BigInt.fromString("1")
+  // entity.balanceFrom = BigInt.fromString("1")
+  entity.balanceFrom = Token.balanceOf(entity.from)
   log.info("-----Transfer event----------: {}", [entity.id.toHexString()])
   entity.save()
 }
